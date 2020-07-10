@@ -10,15 +10,15 @@ script:
     - docker run knidhan/docker-react npm run test  -- --coverage
 
 deploy:
-    - provider: "elasticbeanstalk"
+    - provider: elasticbeanstalk
     - region: "us-east-1"
     - app: "DockerReact"
     - env: "DockerReact-env"
-    - bucket_name: elasticbeanstalk-us-east-1-615859161062
+    - bucket_name: "elasticbeanstalk-us-east-1-615859161062"
     - bucket_path: "DockerReact"
     on:
         branch: master
-        access_key_id: $AWS_ACCESS_KEY
-        secret_access_key:
-            secure: $AWS_SECRET_KEY
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key:
+        secure: $AWS_SECRET_KEY
 
