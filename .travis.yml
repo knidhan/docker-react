@@ -7,7 +7,7 @@ before_install:
     - docker build -t knidhan/docker-react -f dockerfile.dev .
 
 script:
-    - docker run -e  CI=true knidhan/docker-react npm run test  -- --coverage
+    - docker run knidhan/docker-react npm run test  -- --coverage
 
 deploy:
     - provider: "elasticbeanstalk"
